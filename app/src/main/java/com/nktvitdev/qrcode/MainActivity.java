@@ -38,10 +38,18 @@ public class MainActivity extends AppCompatActivity {
         // Initialize views
         MaterialButton scanButton = findViewById(R.id.scanButton);
         browserButton = findViewById(R.id.browserButton);
+        MaterialButton createQrButton = findViewById(R.id.createQrButton);
+        createQrButton.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, CreateQRActivity.class);
+            startActivity(intent);
+        });
+
         resultText = findViewById(R.id.resultText);
 
         // Initially hide the browser button
         browserButton.setVisibility(View.GONE);
+
+
 
         // Request camera permission
         if (checkSelfPermission(Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
